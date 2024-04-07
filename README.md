@@ -1,4 +1,5 @@
 # Processes list
+[![Unit tests](https://github.com/ElodieRoy/hierarchieTest/actions/workflows/tests.yml/badge.svg)](https://github.com/ElodieRoy/hierarchieTest/actions/workflows/tests.yml)
 
 Le programme a pour but de fournir tous les chemins contenant un processus spécifique.
 
