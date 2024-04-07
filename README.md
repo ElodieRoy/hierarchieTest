@@ -22,6 +22,7 @@ Une fois le répertoire cloné, exécuter dans un terminal depuis la racine du p
 ## Jeux de données
 
 ### processes1
+```bash
 system
 ├── services
 │   ├── svchost
@@ -37,8 +38,10 @@ system
 │   │   │   │   ├── Word2.exe
 │   │   │   ├── notepad.exe
 │   │   │   ├── calc.exe
+```
 
 ### processes2
+```bash
 p0
 ├── p1
 │   ├── p3
@@ -52,3 +55,4 @@ p0
 │   │   ├── p9
 │   ├── p6
 ├── p2
+```
