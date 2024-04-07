@@ -1,6 +1,6 @@
 import { describe, expect, test } from '@jest/globals';
-import { findAllFullPathByProcessName } from "../src";
 import { processes1, processes2 } from '../src/data';
+import { findAllFullPathByProcessName } from '../src/processesFunctions';
 
 describe('test findAllFullPathByProcessName', () => {
   test('test find firefox.exe path in processes1', () => {
