@@ -27,14 +27,10 @@ export function findAllFullPathByProcessName(processes: Process[], targetProcess
   const parentProcess = findParentPathByProcess(processes, targetProcess);
 
   // Retrouver les chemins descendants
-  const childrenProcesses = findAllLeafsFromTargetProcess(processes, targetProcess);
-
-  // chaine de caractères listant les processus parents séparés par '->'
-  const parentProcessString = parentProcess.map(p => p.name).join("->");
-  // ex: system->wininit->winlogon->explorer
+  const childrenProcesses = findAllLeafsFromTargetProcess(processes, targetProcess, parentProcess);
 
   // retourne un tableau de chaine de caractères listant tous les chemins des processus contenant le processus cible
-  return childrenProcesses.map(p => parentProcessString + "->" + (p.map(p => p.name).join("->")));
+  return childrenProcesses.map(p => p.map(p => p.name).join("->"));
   // ex: 
   // [
   //   'system->wininit->winlogon->explorer->firefox.exe->cmd.exe',
@@ -84,7 +80,7 @@ function findParentPathByProcess(processes: Process[], targetProcess: Process) {
   return parentProcess;
 }
 
-function findAllLeafsFromTargetProcess(processes: Process[], targetProcess: Process) {
+function findAllLeafsFromTargetProcess(processes: Process[], targetProcess: Process, parentProcesses?: Process[]) {
 
   // Initialisation de childrenProcessesPath qui est le tableau retourné par la fonction
   const childrenProcessesPath: Process[][] = [];
@@ -104,8 +100,8 @@ function findAllLeafsFromTargetProcess(processes: Process[], targetProcess: Proc
     }
   }
 
-  // appel de la fonction avec un tableau vide au départ
-  findLeafs(targetProcess, []);
+  // appel de la fonction à partir de parentProcesses
+  findLeafs(targetProcess, parentProcesses ?? []);
 
   return childrenProcessesPath;
 }
