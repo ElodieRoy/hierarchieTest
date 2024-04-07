@@ -9,7 +9,7 @@
     "typescript": "^5.4.4"
   },
   "scripts": {
-    "start": "ts-node src/script.ts",
+    "start": "ts-node src/index.ts",
     "test": "jest"
   }
 }
