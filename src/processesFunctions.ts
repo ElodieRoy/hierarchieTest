@@ -1,10 +1,8 @@
 // commentaires en français -> commentaires pour expliquer le code dessous (que je t'aurais fait à l'oral)
 
-type Process = {
-  name: string;
-  pid: number;
-  ppid: number;
-};
+import { Process } from "./data";
+
+
 
 /**
 * Function that returns all possible paths for a given process

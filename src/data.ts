@@ -1,3 +1,10 @@
+export type Process = {
+  name: string;
+  pid: number;
+  ppid: number;
+};
+export type Node = { node: Process; children: Node[] };
+
 export const processes1 = [
   {
     name: "system",
@@ -138,3 +145,11 @@ export const processes2 = [
     ppid: 8,
   },
 ];
+
+export const tree1: Node[] = []
+processes1.forEach(x => tree1[x.pid] = { node: x, children: [] })
+processes1.forEach(x => tree1[x.ppid]?.children.push(tree1[x.pid]))
+
+export const tree2: Node[] = []
+processes2.forEach(x => tree2[x.pid] = { node: x, children: [] })
+processes2.forEach(x => tree2[x.ppid]?.children.push(tree2[x.pid]))
